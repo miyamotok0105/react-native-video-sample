@@ -1,6 +1,9 @@
 
 # react-naitive-video sample
 
+[ビデオ再生ライブラリの`react-native-video`のサンプル](https://github.com/react-native-video/react-native-video)
+
+
 
 ```
 #初期プロジェクト作成時

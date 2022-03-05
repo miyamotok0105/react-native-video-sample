@@ -29,14 +29,20 @@ yarn run start:ios
 index.jsを修正すれば、違うサンプルを確認できる。
 
 ```js:video/index.js
-import AppBasic from './AppBasic';
-AppRegistry.registerComponent(appName, () => AppBasic);
+// import App from './App';
+// AppRegistry.registerComponent(appName, () => App);
 
-// import AppEmbedAndFullscreen from './AppEmbedAndFullscreen';
-// AppRegistry.registerComponent(appName, () => AppEmbedAndFullscreen);
+// 全部入りテンプレート
+// import AppBasic from './AppBasic';
+// AppRegistry.registerComponent(appName, () => AppBasic);
 
-// import AppPlayVideo from './AppPlayVideo';
-// AppRegistry.registerComponent(appName, () => AppPlayVideo);
+// シンプル動画再生（ステータスバーあり）
+// import AppBasic2 from './AppBasic2';
+// AppRegistry.registerComponent(appName, () => AppBasic2);
+
+// スワイプ動画再生（ステータスバーなし）
+import AppBasic3 from './AppBasic3';
+AppRegistry.registerComponent(appName, () => AppBasic3);
 
 ```
 

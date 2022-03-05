@@ -370,10 +370,6 @@ var video_url = 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f
   //    return (
   //        <View>
   //          <Text>waaaa</Text>
-
-
-
-
   //        </View>
   //    );
    }

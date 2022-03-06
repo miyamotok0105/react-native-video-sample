@@ -71,10 +71,13 @@ AppRegistry.registerComponent(appName, () => AppBasic3);
 
 [Ts版の参考](https://reactnative.dev/blog/2018/05/07/using-typescript-with-react-native)
 
-react-native init videoTs --template react-native-template-typescript
+このサンプルを元に作成
+https://github.com/miyamotok0105/react-native-video-extension
 
+初回作成時
 
 ```
+react-native init videoTs --template react-native-template-typescript
 yarn add --dev typescript
 yarn add --dev react-native-typescript-transformer
 yarn tsc --init --pretty --jsx react

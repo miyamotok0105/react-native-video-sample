@@ -3,11 +3,14 @@ import React from 'react';
 import {
   StyleSheet,
   ScrollView,
+  SafeAreaView,
   Dimensions,
   Animated,
   Image,
+  View,
 } from 'react-native';
-import { YoutubePlayer } from 'react-native-video-extension';
+import Video from 'react-native-video';
+import { FacebookPlayer, ScreenContainer } from "react-native-video-extension";
 
 const width = Dimensions.get('window').width;
 
@@ -43,51 +46,46 @@ export default function App() {
   const onMomentumScrollEnd = ({nativeEvent}) => {
     const newIndex = nativeEvent.contentOffset.x / width;
     if (newIndex !== index && newIndex < videos.length && newIndex >= 0) {
-      opacity.setValue(0);
+      opacity.setValue(parseFloat(0));
       setIndex(newIndex);
     }
   };
 
   return (
-    <ScrollView
-      style={styles.container}
-      horizontal
-      pagingEnabled
-      disableIntervalMomentum
-      showsHorizontalScrollIndicator={false}
-      onMomentumScrollEnd={onMomentumScrollEnd}>
-      {videos.map((i) => (
-        <Image
-        key={i.key}
-        resizeMode={resizeMode}
-        style={styles.item}
-        source={{uri: i.poster}}  
-        />
-      ))}
-      <Animated.View
-        style={[
-          StyleSheet.absoluteFillObject,
-          {width, left: index * width, opacity},
-        ]}>
-        {/* <Video
-          resizeMode={resizeMode}
-          style={styles.video}
-          source={{uri: videos[index].url}}
-          shouldPlay
-          isLooping
-          isMuted
-          onReadyForDisplay={() => opacity.setValue(1)}
-        /> */}
-        <View>
-            <YoutubePlayer
-                mode="auto-fit"
+      <ScreenContainer>
+        {({ fullscreen, seeking }) => {
+        return (
+            <SafeAreaView
+            // always stretch to fill empty space
+            style={{
+                flex: 1,
+                zIndex: fullscreen ? 1 : 0, // depends on your app
+                backgroundColor: fullscreen ? "black" : "white",
+            }}
+            >
+            <ScrollView
+                // disable scrolling inside scroll view while in fullscreen or seeking
+                scrollEnabled={!fullscreen && !seeking}
+                style={{ flex: 1 }}
+                // need to stretch with flex: 1 when fullscreen
+                // because VideoPlayer will be absolute
+                contentContainerStyle={{ flex: fullscreen ? 1 : 0 }}
+            >
+                {/* <PostHeader /> */}
+                <FacebookPlayer
+                mode="contain"
+                // source={require("./assets/horizontal_video.mp4")}
                 source={{
-                uri: 'https://stream.mux.com/Tyu80069gbkJR2uIYlz2xARq8VOl4dLg3.m3u8',
+                  uri:
+                    'https://stream.mux.com/Tyu80069gbkJR2uIYlz2xARq8VOl4dLg3.m3u8',
                 }}
-            />
-        </View>
-      </Animated.View>
-    </ScrollView>
+                />
+                {/* <PostContent /> */}
+            </ScrollView>
+            </SafeAreaView>
+        );
+        }}
+      </ScreenContainer>
   );
 }
 

@@ -16,7 +16,7 @@
     "react-native": "0.67.3",
     "react-native-orientation-locker": "^1.4.0",
     "react-native-size-matters": "^0.4.0",
-    "react-native-svg": "12.1.0",
+    "react-native-svg": "9.6.2",
     "react-native-video": "^5.2.0",
     "react-native-video-extension": "^0.1.3"
   },

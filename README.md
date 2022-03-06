@@ -24,6 +24,27 @@ arch -x86_64 pod install
 #iosビルド。xcodeを実行するとシミュレーターが動く。
 yarn run start:ios
 
+※ xcodeをclean & rebuildするとうまくいく場合がある。
+
+「m1の場合」
+
+XcodeのプロジェクトのBuild SettingsのExcluded ArcitecturesのDebugとReleaseをarm64を追加することで、arm64を除外する。
+https://qiita.com/littleossa/items/ff75b19e0ac6713941f8
+
+Podfileの中に下記を追加する
+
+```
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+end
+```
+
+
+### 実行
+
+
 ```
 
 index.jsを修正すれば、違うサンプルを確認できる。
@@ -44,5 +65,20 @@ index.jsを修正すれば、違うサンプルを確認できる。
 import AppBasic3 from './AppBasic3';
 AppRegistry.registerComponent(appName, () => AppBasic3);
 
+```
+
+## TypeScript版
+
+[Ts版の参考](https://reactnative.dev/blog/2018/05/07/using-typescript-with-react-native)
+
+react-native init videoTs --template react-native-template-typescript
+
+
+```
+yarn add --dev typescript
+yarn add --dev react-native-typescript-transformer
+yarn tsc --init --pretty --jsx react
+touch rn-cli.config.js
+yarn add --dev @types/react @types/react-native
 ```
 

@@ -5,7 +5,8 @@ function SvgComponent(props: SvgProps) {
   return (
     <Svg
       viewBox="0 0 24 24"
-      fill="currentColor"
+      // fill="currentColor"
+      fill="none"
       color="#fff"
       width={24}
       height={24}

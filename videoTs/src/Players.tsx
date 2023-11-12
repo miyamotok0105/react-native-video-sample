@@ -102,8 +102,8 @@ const Players = ({ navigation }: PlayersProps) => {
               aspectRatio={isLandscape ? 'landscape' : 'portrait'}
               source={{
                 uri: isLandscape
-                  ? 'https://stream.mux.com/RvflnSja01tV00MWLYllWwp6GhE7t6RT01jRPfZJIwJM7I.m3u8'
-                  : 'https://stream.mux.com/Dr7x01RuyU2yQJmlY8fZ2FW62yeAV02RR5MMkys7DiG8M.m3u8',
+                  ? 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8'
+                  : 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8',
               }}
             />
             <View style={{ padding: 16 }}>

@@ -41,6 +41,13 @@ post_install do |installer|
 end
 ```
 
+### バンドル作成
+
+実機を動かすときにバンドルを作成すると、画像などが表示されるようになる。    
+
+```
+yarn run build:ios
+```
 
 ### 実行
 
